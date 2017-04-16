@@ -73,5 +73,5 @@ I recorded the positions of positive detections in each frame of the video.  Fro
 
 ###Discussion
 
-The pipeline has a a bit of a hard time identifying the white car across all the frames. It also finds a few too many false positives, which makes me believe that light intensity and shadows are interfering with the results. The results could be potentially improved by exploring different color spaces, updating the number of previous frames, tunning the threshold and the vector features parameters. I also strongly believe that a neural network would have a far better result than a LinearSVC. 
+The pipeline has a a bit of a hard time identifying the white car across all the frames. It also finds a few too many false positives, which makes me believe that light intensity and shadows are interfering with the results. The results could be potentially improved by exploring different color spaces, updating the number of previous frames stored in the pipeline, and by tunning the threshold and the vector features parameters. I also strongly believe that a neural network would have a far better result than a LinearSVC. 
 
