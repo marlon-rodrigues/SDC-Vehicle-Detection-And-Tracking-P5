@@ -45,7 +45,7 @@ I trained a linear SVM using the LinearSCV() function to classifiy images as veh
 
 ####1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+I impletemented 2 different functions to handle the sliding window search. A function called `slide_window()`, located at the 6th cell of the notebook, is used to simply show the windows that will be searched throught the frames. A second function, which is part of the final pipeline, called `find_cars()`, located at the 13th cell of the notebook, is a more efficient method for doing the sliding window approach. This function only has to extract hog features once and then can be sub-sampled to get all of its overlaying windows. Each window is defined by a scaling factor where a scale of 1 would result in a window that's 8 x 8 cells then the overlap of each window is in terms of the cell distance. This means that a cells_per_step = 2 would result in a search window overlap of 75%. I used a scaling factor of 1.8, 
 
 ![alt text][image3]
 
