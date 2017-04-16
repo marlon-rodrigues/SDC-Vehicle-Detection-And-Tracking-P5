@@ -24,24 +24,22 @@ The goals / steps of this project are the following:
 
 ###Histogram of Oriented Gradients (HOG), Histogram of Colors and Spatial Binned
 
-The code for this step is contained in the 1st, 2nd, 3rd and 4th code cells of the IPython notebook.  
+The code for this step is contained in the 1st, 2nd, 3rd and 4th code cells of the iPython notebook.  
 
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
 ![alt text][image1]
 
-I then created functions to extract the spatial binned features, the histogram of colors and the HOG features. I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed a sample images from each of the two classes and displayed them to get a feel for what each feature vector looks like.
+I then created functions to extract the spatial binned features, the histogram of colors and the HOG features - 7th cell of iPython notebook. I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed a sample images from each of the two classes and displayed them to get a feel for what each feature vector looks like.
 
 Here is an example using the histogram of colors, spatial binned and HOG parameters of `orientations=12`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
 
 ![alt text][image2]
 
-After I tried various combinations of parameters, I settled with 12 orientations, 8x8 pixels per cell and 2x2 cells per block for the HOG features, 32x32 image size for the binned color features and 32 bins for the histograms, which provided the best results.
+After I tried various combinations of parameters, I settled with 12 orientations, 8x8 pixels per cell and 2x2 cells per block for the HOG features, 32x32 image size for the binned color features and 32 bins for the histograms, which provided the best results. Those parameters are set on function called `tunning_parameters()` located at the 8th cell of the notebook.
 
-####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
-
-I trained a linear SVM using...
+I trained a linear SVM using the LinearSCV() function to classifiy images as vehicles. The scv is fit with a training set that is obtained from a combination of the normalized vehicles and non vehicles features vectors. My classifier gets an accuracy of 98.%. The classifier is located at the 9th cell of the notebook.
 
 ###Sliding Window Search
 
