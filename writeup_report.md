@@ -33,9 +33,9 @@ I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an 
 
 ![alt text][image1]
 
-I then created a function called `extract_features()` to extract and combine the spatial binned features, the histogram of colors and the HOG features - 6th cell of iPython notebook. I explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`) as well as different image sizes for binned colors and diferent number of bins for the histrogram.  I grabbed a sample images from each of the two classes and displayed them to get a feel for what each feature vector looks like.
+I then created a function called `extract_features()` to extract and combine the spatial binned features, the histogram of colors and the HOG features - 6th cell of iPython notebook. I explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`) as well as different image sizes for binned colors and diferent number of bins for the histrogram.  I grabbed a sample image from each of the two classes and displayed them to get a feel for what each feature vector looks like.
 
-Here is an example using the histogram of colors, spatial binned and HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)` individually:
+Here is an example using the histogram of colors, spatial binned and HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)`, `cells_per_block=(2, 2)`, `spatial_size=(32,32)` and `history bins=32` individually:
 
 ![alt text][image2]
 ![alt text][image3]
