@@ -45,7 +45,7 @@ I trained a linear SVM using the LinearSCV() function to classifiy images as veh
 
 ####1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I impletemented 2 different functions to handle the sliding window search. A function called `slide_window()`, located at the 6th cell of the notebook, is used to simply show the windows that will be searched throught the frames. A second function, which is part of the final pipeline, called `find_cars()`, located at the 13th cell of the notebook, is a more efficient method for doing the sliding window approach. This function only has to extract hog features once and then can be sub-sampled to get all of its overlaying windows. Each window is defined by a scaling factor where a scale of 1 would result in a window that's 8 x 8 cells then the overlap of each window is in terms of the cell distance. This means that a cells_per_step = 2 would result in a search window overlap of 75%. I used a scaling factor of 1.5, with cells_per_step = 2, which resulted in a serch window overlap of 50%. 
+I impletemented 2 different functions to handle the sliding window search. A function called `slide_window()`, located at the 6th cell of the notebook, is used to simply show the windows that will be searched throught the frames. A second function, which is part of the final pipeline, called `find_cars()`, located at the 13th cell of the notebook, is a more efficient method for doing the sliding window approach. This function only has to extract hog, histogram and binned color features once and then can be sub-sampled to get all of its overlaying windows. Each window is defined by a scaling factor where a scale of 1 would result in a window that's 8 x 8 cells then the overlap of each window is in terms of the cell distance. This means that a cells_per_step = 2 would result in a search window overlap of 75%. I used a scaling factor of 1.5, with cells_per_step = 2, which resulted in a serch window overlap of 50%. The `find_cars()` function uses the linearSVC classifier to make the predictions.
 
 ![alt text][image3]
 
@@ -59,9 +59,8 @@ Here's a [link to my video result](./project_video.mp4)
 
 I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
 
-Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
 
-### Here are six frames and their corresponding heatmaps:
+### Here is an example of the results of my pipeline in a sample image:
 
 ![alt text][image5]
 
@@ -70,7 +69,5 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 ###Discussion
 
-####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
-
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+The pipeline has a a bit of a hard time identifying the white car across all the frames. It also finds a few too many false positives, which makes me believe that light intensity and shadows are interfering with the results. The results could be potentially improved by exploring different color spaces, updating the number of previous frames, tunning the threshold and the vector features parameters. I also strongly believe that a neural network would have a far better result than a LinearSVC. 
 
