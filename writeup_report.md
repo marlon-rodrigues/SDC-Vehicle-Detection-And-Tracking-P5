@@ -27,7 +27,7 @@ The goals / steps of this project are the following:
 
 ###Histogram of Oriented Gradients (HOG), Histogram of Colors and Spatial Binned Colors
 
-The code for this step is contained in the 1st, 2nd, 3rd and 4th code cells of the iPython notebook.  
+The code for this step is contained in the 1st, 2nd, 3rd and 4th code cells of the P5.ypynb iPython notebook.  
 
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
