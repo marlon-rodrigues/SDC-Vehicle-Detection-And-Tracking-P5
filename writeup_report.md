@@ -53,7 +53,7 @@ I impletemented 2 different functions to handle the sliding window search. A fun
 
 ![alt text][image6]
 
-Ultimately I searched on one scale (1.4) using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here is an example image:
+Ultimately I searched on one scale (1.4) using YCrCb 3-channel HOG features combined with binned color and histograms of colors feature vectors, which provided a nice result.  Here is an example image:
 
 ![alt text][image7]
 ---
