@@ -58,7 +58,7 @@ Ultimately I searched on one scale (1.4) using YCrCb 3-channel HOG features comb
 ---
 
 ### Video Implementation
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result][video1]
 
 I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected. The pipeline for the video implementation is located at the 18th cell of the notebook.  
 
