@@ -18,8 +18,7 @@ The goals / steps of this project are the following:
 [image7]: ./output_images/find_cars.png
 [image8]: ./output_images/full_pipeline.png
 [image9]: ./output_images/final_result.png
-
-[video1]: ./project_video.mp4
+[video1]: ./project_results_video.mp4
 
 ## Rubric Points 
 #### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/513/view) individually and describe how I addressed each point in my implementation. 
