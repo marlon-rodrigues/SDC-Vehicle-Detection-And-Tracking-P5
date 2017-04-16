@@ -37,11 +37,9 @@ I then created a function called `extract_features()` to extract and combine the
 
 Here is an example using the histogram of colors, spatial binned and HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)` individually:
 
-Vehicles:
 ![alt text][image2]
 ![alt text][image3]
 
-Non Vehicles
 ![alt text][image4]
 ![alt text][image5]
 
