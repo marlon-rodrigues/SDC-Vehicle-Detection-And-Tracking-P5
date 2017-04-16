@@ -37,9 +37,7 @@ Here is an example using the histogram of colors, spatial binned and HOG paramet
 
 ![alt text][image2]
 
-####2. Explain how you settled on your final choice of HOG parameters.
-
-I tried various combinations of parameters and I obtained the best results using 12 orient
+After I tried various combinations of parameters, I settled with 12 orientations, 8x8 pixels per cell and 2x2 cells per block for the HOG features, 32x32 image size for the binned color features and 32 bins for the histograms, which provided the best results.
 
 ####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
