@@ -39,30 +39,28 @@ Here is an example using the histogram of colors, spatial binned and HOG paramet
 
 After I tried various combinations of parameters, I settled with 9 orientations, 8x8 pixels per cell and 2x2 cells per block for the HOG features, 32x32 image size for the binned color features and 32 bins for the histograms, which provided the best results. Those parameters are set on function called `tunning_parameters()` located at the 11th cell of the notebook.
 
-I trained a linear SVM using the LinearSCV() function to classifiy images as vehicles. The scv is fit with a training set that is obtained from a combination of the normalized vehicles and non vehicles features vectors. My classifier gets an accuracy of 98.%. The classifier is located at the 12th cell of the notebook.
+I trained a linear SVM using the LinearSCV() function to classifiy images as vehicles. The scv is fit with a training set that is obtained from a combination of the normalized vehicles and non vehicles features vectors. My classifier gets an accuracy of 98.73%. The classifier is located at the 12th cell of the notebook.
 
 ###Sliding Window Search
 
-####1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
-
-I impletemented 2 different functions to handle the sliding window search. A function called `slide_window()`, located at the 6th cell of the notebook, is used to simply show the windows that will be searched throught the frames. A second function, which is part of the final pipeline, called `find_cars()`, located at the 13th cell of the notebook, is a more efficient method for doing the sliding window approach. This function only has to extract hog, histogram and binned color features once and then can be sub-sampled to get all of its overlaying windows. Each window is defined by a scaling factor where a scale of 1 would result in a window that's 8 x 8 cells then the overlap of each window is in terms of the cell distance. This means that a cells_per_step = 2 would result in a search window overlap of 75%. I used a scaling factor of 1.5, with cells_per_step = 2, which resulted in a serch window overlap of 50%. The `find_cars()` function uses the linearSVC classifier to make the predictions.
-
-![alt text][image3]
-
-Ultimately I searched on one scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here is an example image:
+I impletemented 2 different functions to handle the sliding window search. A function called `slide_window()`, located at the 9th cell of the notebook, is used to simply show the windows that will be searched throught the frames. A second function, which is part of the final pipeline, called `find_cars()`, located at the 14th cell of the notebook, is a more efficient method for doing the sliding window approach. This function only has to extract hog, histogram and binned color features once and then can be sub-sampled to get all of its overlaying windows. Each window is defined by a scaling factor where a scale of 1 would result in a window that's 8 x 8 cells then the overlap of each window is in terms of the cell distance. This means that a cells_per_step = 2 would result in a search window overlap of 75%. I used a scaling factor of 1.4, with cells_per_step = 2, which resulted in a serch window overlap of ~55%. The `find_cars()` function uses the linearSVC classifier to make the predictions.
 
 ![alt text][image4]
+
+Ultimately I searched on one scale (1.4) using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here is an example image:
+
+![alt text][image5]
 ---
 
 ### Video Implementation
 Here's a [link to my video result](./project_video.mp4)
 
-I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
+I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected. The pipeline for the video implementation is located at the 18th cell of the notebook.  
 
 
 ### Here is an example of the results of my pipeline in a sample image:
 
-![alt text][image5]
+![alt text][image6]
 
 
 ---
