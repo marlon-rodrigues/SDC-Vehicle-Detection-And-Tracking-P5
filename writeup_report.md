@@ -45,24 +45,17 @@ I trained a linear SVM using the LinearSCV() function to classifiy images as veh
 
 ####1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I impletemented 2 different functions to handle the sliding window search. A function called `slide_window()`, located at the 6th cell of the notebook, is used to simply show the windows that will be searched throught the frames. A second function, which is part of the final pipeline, called `find_cars()`, located at the 13th cell of the notebook, is a more efficient method for doing the sliding window approach. This function only has to extract hog features once and then can be sub-sampled to get all of its overlaying windows. Each window is defined by a scaling factor where a scale of 1 would result in a window that's 8 x 8 cells then the overlap of each window is in terms of the cell distance. This means that a cells_per_step = 2 would result in a search window overlap of 75%. I used a scaling factor of 1.8, 
+I impletemented 2 different functions to handle the sliding window search. A function called `slide_window()`, located at the 6th cell of the notebook, is used to simply show the windows that will be searched throught the frames. A second function, which is part of the final pipeline, called `find_cars()`, located at the 13th cell of the notebook, is a more efficient method for doing the sliding window approach. This function only has to extract hog features once and then can be sub-sampled to get all of its overlaying windows. Each window is defined by a scaling factor where a scale of 1 would result in a window that's 8 x 8 cells then the overlap of each window is in terms of the cell distance. This means that a cells_per_step = 2 would result in a search window overlap of 75%. I used a scaling factor of 1.5, with cells_per_step = 2, which resulted in a serch window overlap of 50%. 
 
 ![alt text][image3]
 
-####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
-
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
+Ultimately I searched on one scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here is an example image:
 
 ![alt text][image4]
 ---
 
 ### Video Implementation
-
-####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
 Here's a [link to my video result](./project_video.mp4)
-
-
-####2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
 I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
 
@@ -71,13 +64,6 @@ Here's an example result showing the heatmap from a series of frames of video, t
 ### Here are six frames and their corresponding heatmaps:
 
 ![alt text][image5]
-
-### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
-![alt text][image6]
-
-### Here the resulting bounding boxes are drawn onto the last frame in the series:
-![alt text][image7]
-
 
 
 ---
