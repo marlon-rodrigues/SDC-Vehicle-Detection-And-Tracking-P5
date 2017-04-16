@@ -25,7 +25,7 @@ The goals / steps of this project are the following:
 #### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/513/view) individually and describe how I addressed each point in my implementation. 
 ---
 
-###Histogram of Oriented Gradients (HOG), Histogram of Colors and Spatial Binned
+###Histogram of Oriented Gradients (HOG), Histogram of Colors and Spatial Binned Colors
 
 The code for this step is contained in the 1st, 2nd, 3rd and 4th code cells of the iPython notebook.  
 
